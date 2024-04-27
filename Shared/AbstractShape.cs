@@ -1,38 +1,43 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace OOP2.Shared
 {
-    public abstract class AbstractShape
+    public abstract class AbstractShape(Brush bgColor, Brush penColor)
     {
         private int CanvasIndex = -1;
-       
+
+        public Point TopLeft { get; protected set; }
+        public Point DownRight { get; protected set; }
+        public Brush BackgroundColor { get; } = bgColor;
+        public Brush PenColor { get; } = penColor;
+
         public IDrawStrategy DrawStrategy { get; protected set; }
 
-        public void DrawAlgorithm()
+        public AbstractShape(Point topLeft, Point downRight, Brush bgColor, Brush penColor) : this(bgColor, penColor)
         {
-            var drawnShape = DrawStrategy.Draw(this);
+            TopLeft = topLeft;
+            DownRight = downRight;
+        }
 
+        public void DrawAlgorithm(Canvas canvas)
+        {
+            Shape drawnShape = DrawStrategy.Draw(this);
             if (drawnShape != null)
             {
                 if (CanvasIndex < 0)
                 {
-                    CanvasIndex = Canvas.Children.Count;
-                    Canvas.Children.Add(drawnShape);
+                    CanvasIndex = canvas.Children.Count;
+                    canvas.Children.Add(drawnShape);
                 }
                 else
                 {
-                    Canvas.Children.RemoveAt(CanvasIndex);
-                    Canvas.Children.Insert(CanvasIndex, drawnShape);
+                    canvas.Children.RemoveAt(CanvasIndex);
+                    canvas.Children.Insert(CanvasIndex, drawnShape);
                 }
                 drawnShape.Tag = CanvasIndex;
             }
         }
-
-
     }
 }

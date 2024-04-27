@@ -1,12 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using OOP2.Shared;
+using System.Windows.Media;
+using OOP2.Shapes;
 
-namespace OOP2.Faсtories
+namespace OOP2.Faсtories;
+
+public class LineFactory : AbstractFactory
 {
-    internal class LineFactory
+    public override AbstractShape CreateShape(Point topLeft, Point downRight, Brush bgColor, Brush penColor)
     {
+       return new 
     }
 }

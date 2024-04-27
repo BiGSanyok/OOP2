@@ -1,22 +1,20 @@
+using OOP2.Shared;
 using System;
-using System.Drawing;
+using System.Windows.Media;
 
 
 namespace Shapes
 {
-    class Triangle : Shape
+    class Triangle : AbstractShape
     {
-        private double SideA { get; set; }
-        private double SideB { get; set; }
-        private double SideC { get; set; }
+        public Point TopLeft { get; set; }
+        public Point DownRight { get; set; }
 
-        public Triangle(Point position, double sideA, double sideB, double sideC, Color color)
+        public Triangle(Point topLeft, Point downRight, Brush bgColor, Brush penColor)
+        : base(bgColor, penColor)
         {
-            Color = color;
-            Position = position;
-            SideA = sideA;
-            SideB = sideB;
-            SideC = sideC;
+            TopLeft = topLeft;
+            DownRight = downRight;
         }
 
     }

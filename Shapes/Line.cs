@@ -1,39 +1,13 @@
-using System;
-using System.Drawing;
+using OOP2.Shared;
+using System.Windows.Media;
 
-namespace Shapes
+namespace Shapes;
+
+public class Line : AbstractShape
 {
-    public class Line : Shape
-    {
-        private double Length { get; set; }
-        private double Angle { get; set; }
+    public Line(Point topLeft, Point downRight, Brush bgColor, Brush borderColor) : base(topLeft, downRight, bgColor, borderColor)
+    { }
 
-        public Line(Point position, double length, double angle, Color color)
-        {
-            Color = color;
-            Angle = angle;
-            Length = length;
-            Position = position;
-        }
-        
-        public void SetLength(double newSize)
-        {
-            Length = newSize;
-        }
-
-        public double GetLength()
-        {
-            return Length;
-        }
-        public override void Draw(Graphics graphics)
-        {
-            using (Pen pen = new Pen(Color))
-            {
-                int x2 = Position.X + (int)(Length * Math.Cos(Math.PI * -Angle / 180));
-                int y2 = Position.Y + (int)(Length * Math.Sin(Math.PI * -Angle / 180));
-            
-                graphics.DrawLine(pen, Position, new Point(x2, y2));
-            }
-        }
-    }
+    public override string ToString() =>
+        $"{nameof(Line)}: Start:({TopLeft.X}-{TopLeft.Y}; End:({DownRight.X}-{DownRight.Y})";
 }
