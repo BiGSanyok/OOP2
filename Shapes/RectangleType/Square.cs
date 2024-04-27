@@ -5,8 +5,8 @@ namespace OOP2.Shapes.RectangleType;
 
 public class Square : Rectangle
 {
-    public Square(Point topLeft, Point downRight, Brush backgroundColor, Brush penColor)
-       : base(topLeft, downRight, backgroundColor, penColor)
+    public Square(Point topLeft, Point downRight, Brush backgroundColor, Brush penColor, int angle)
+       : base(topLeft, downRight, backgroundColor, penColor, angle)
     { }
 
     public override string ToString() =>

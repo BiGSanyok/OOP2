@@ -3,19 +3,29 @@ using System;
 using System.Windows.Media;
 
 
-namespace Shapes
+namespace OOP2.Shapes;
+
+class Triangle : AbstractShape
 {
-    class Triangle : AbstractShape
+    public Point VertexOX { get; set; }
+    public Point VertexOY { get; set; }
+    public Triangle(Point topLeft, Point downRight, Brush bgColor, Brush penColor, int angle)
+    : base(topLeft, downRight, bgColor, penColor, angle)
+    { }
+    public void CalculateVertexByX(Point vertex, Point endPoint)
     {
-        public Point TopLeft { get; set; }
-        public Point DownRight { get; set; }
-
-        public Triangle(Point topLeft, Point downRight, Brush bgColor, Brush penColor)
-        : base(bgColor, penColor)
-        {
-            TopLeft = topLeft;
-            DownRight = downRight;
-        }
-
+        VertexOX = new(vertex.X + Math.Abs(endPoint.X - vertex.X), vertex.Y);
     }
+    public void CalculateVertexByY(Point vertex, Point endPoint)
+    {
+        float sideOX = Math.Abs(vertex.X - endPoint.X);
+        float sideOY = Math.Abs(vertex.Y - endPoint.Y);
+
+        float center = sideOX / 2;
+        float height = sideOY;
+        VertexOY = new Point(vertex.X + center, vertex.Y - height);
+    }
+
+    public override string ToString() =>
+        $"{nameof(Triangle)}: Vertex1=({TopLeft.X}-{TopLeft.Y}), Vertex2=({VertexOX.X}-{VertexOX.Y}), Vertex3=({VertexOY.X}-{VertexOY.Y})";
 }

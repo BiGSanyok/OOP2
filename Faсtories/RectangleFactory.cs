@@ -6,8 +6,8 @@ namespace OOP2.Faсtories;
 
 public class RectangleFactory : AbstractFactory
 {
-    public override AbstractShape CreateShape(Point topLeft, Point downRight, Brush bgColor, Brush penColor)
+    public override AbstractShape CreateShape(Point topLeft, Point downRight, Brush bgColor, Brush penColor, int angle)
     {
-        return new Rectangle(topLeft, downRight, bgColor, penColor);
+        return new Rectangle(topLeft, downRight, bgColor, penColor, angle);
     }
 }

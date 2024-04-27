@@ -1,11 +1,12 @@
 using OOP2.Shared;
 using System.Windows.Media;
 
-namespace Shapes;
+namespace OOP2.Shapes;
+
 
 public class Line : AbstractShape
 {
-    public Line(Point topLeft, Point downRight, Brush bgColor, Brush borderColor) : base(topLeft, downRight, bgColor, borderColor)
+    public Line(Point topLeft, Point downRight, Brush bgColor, Brush borderColor, int angle) : base(topLeft, downRight, bgColor, borderColor, angle)
     { }
 
     public override string ToString() =>

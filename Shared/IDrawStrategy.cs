@@ -4,6 +4,6 @@ namespace OOP2.Shared
 {
     public interface IDrawStrategy
     {
-        Shape Draw(AbstractShape shape);
+        Shape? Draw(AbstractShape shape);
     }
 }
