@@ -10,28 +10,28 @@
         WindowStyle="None" AllowsTransparency="True">
     <Window.InputBindings>
         <KeyBinding Command="Close" Key="Esc" />
-        <KeyBinding Command="local:OOP2.Commands.RotateLeft" Key="LeftShift" Modifiers="Shift" />
-        <KeyBinding Command="local:OOP2.Commands.RotateRight" Key="RightShift" Modifiers="Shift" />
-        <KeyBinding Command="local:OOP2.Commands.RotateReset" Key="LeftCtrl" Modifiers="Control" />
-        <KeyBinding Command="local:OOP2.Commands.RotateReset" Key="RightCtrl" Modifiers="Control" />
-        <KeyBinding Command="local:OOP2.Commands.MoveDown" Key="Down" />
-        <KeyBinding Command="local:OOP2.Commands.MoveDown" Key="S" />
-        <KeyBinding Command="local:OOP2.Commands.MoveUp" Key="Up" />
-        <KeyBinding Command="local:OOP2.Commands.MoveUp" Key="W" />
-        <KeyBinding Command="local:OOP2.Commands.MoveLeft" Key="Left" />
-        <KeyBinding Command="local:OOP2.Commands.MoveLeft" Key="A" />
-        <KeyBinding Command="local:OOP2.Commands.MoveRight" Key="Right" />
-        <KeyBinding Command="local:OOP2.Commands.MoveRight" Key="D" />
+        <KeyBinding Command="local:Commands.RotateRight" Key="LeftShift" Modifiers="Shift" />
+        <KeyBinding Command="local:Commands.RotateRight" Key="RightShift" Modifiers="Shift" />
+        <KeyBinding Command="local:Commands.RotateReset" Key="LeftCtrl" Modifiers="Control" />
+        <KeyBinding Command="local:Commands.RotateReset" Key="RightCtrl" Modifiers="Control" />
+        <KeyBinding Command="local:Commands.MoveDown" Key="Down" />
+        <KeyBinding Command="local:Commands.MoveDown" Key="S" />
+        <KeyBinding Command="local:Commands.MoveUp" Key="Up" />
+        <KeyBinding Command="local:Commands.MoveUp" Key="W" />
+        <KeyBinding Command="local:Commands.MoveLeft" Key="Left" />
+        <KeyBinding Command="local:Commands.MoveLeft" Key="A" />
+        <KeyBinding Command="local:Commands.MoveRight" Key="Right" />
+        <KeyBinding Command="local:Commands.MoveRight" Key="D" />
     </Window.InputBindings>
 
     <Window.CommandBindings>
-        <CommandBinding Command="local:OOP2.Commands.RotateLeft" Executed="RotateLeft_OnExecuted" />
-        <CommandBinding Command="local:OOP2.Commands.RotateRight" Executed="RotateRight_OnExecuted" />
-        <CommandBinding Command="local:OOP2.Commands.RotateReset" Executed="RotateReset_OnExecuted" />
-        <CommandBinding Command="local:OOP2.Commands.MoveUp" Executed="MoveUp_OnExecuted" />
-        <CommandBinding Command="local:OOP2.Commands.MoveDown" Executed="MoveDown_OnExecuted" />
-        <CommandBinding Command="local:OOP2.Commands.MoveRight" Executed="MoveRight_OnExecuted" />
-        <CommandBinding Command="local:OOP2.Commands.MoveLeft" Executed="MoveLeft_OnExecuted" />
+        <CommandBinding Command="local:Commands.RotateLeft" Executed="RotateLeft_OnExecuted" />
+        <CommandBinding Command="local:Commands.RotateRight" Executed="RotateRight_OnExecuted" />
+        <CommandBinding Command="local:Commands.RotateReset" Executed="RotateReset_OnExecuted" />
+        <CommandBinding Command="local:Commands.MoveUp" Executed="MoveUp_OnExecuted" />
+        <CommandBinding Command="local:Commands.MoveDown" Executed="MoveDown_OnExecuted" />
+        <CommandBinding Command="local:Commands.MoveRight" Executed="MoveRight_OnExecuted" />
+        <CommandBinding Command="local:Commands.MoveLeft" Executed="MoveLeft_OnExecuted" />
     </Window.CommandBindings>
 
     <Window.Resources>

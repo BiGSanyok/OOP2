@@ -6,7 +6,7 @@ namespace OOP2.Shared
 {
     public abstract class AbstractShape(Brush bgColor, Brush penColor)
     {
-        private int CanvasIndex = -1;
+        public int CanvasIndex { get; set; }
         public int Angle { get; set; }
         public int CornerOXY { get; private set; }
         public double StrokeThickness { get; set; } = 1;
@@ -19,6 +19,7 @@ namespace OOP2.Shared
 
         public AbstractShape(Point topLeft, Point downRight, Brush bgColor, Brush penColor, int angle) : this(bgColor, penColor)
         {
+            CanvasIndex = -1;
             TopLeft = topLeft;
             DownRight = downRight;
             Angle = angle;

@@ -9,12 +9,17 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Shapes;
 using OOP2;
+using OOP2.Faсtories;
+using OOP2.Shared;
+using Xceed.Wpf.Toolkit;
 
 
-namespace OOTPiSP;
+namespace OOP2;
 
-public partial class MainWindow
+public partial class MainWindow 
 {
+
+     
     const int DefaultAngleRotation = 2;
     const int DefaultMoveCoordinate = 2;
 
@@ -41,7 +46,7 @@ public partial class MainWindow
 
     bool _isHandledButton;
     OOP2.Shared.Point _downMyPoint;
-    MyPoint _upMyPoint;
+    OOP2.Shared.Point _upMyPoint;
 
     int _angle;
     int _arrowsX;
@@ -73,15 +78,15 @@ public partial class MainWindow
         if (e is { ClickCount: 1, OriginalSource: Shape shape })
         {
             int tag = (int)shape.Tag;
-            for (int i = tag + 1; i < Canvas.Children.Count; i++)
+            for (int i = tag + 1; i < DrawField.Children.Count; i++)
             {
-                if (Canvas.Children[i] is Shape item)
+                if (DrawField.Children[i] is Shape item)
                 {
                     int tagTemp = (int)item.Tag;
                     item.Tag = --tagTemp;
                 }
             }
-            Canvas.Children.RemoveAt(tag);
+            DrawField.Children.RemoveAt(tag);
 
             for (int i = tag + 1; i < AbstractShapes.Count; i++)
             {
@@ -103,7 +108,7 @@ public partial class MainWindow
             var shapeEditorWindow = new ShapeEditorWindow(shape);
             shapeEditorWindow.ShowDialog();
 
-            shape.DrawAlgorithm(Canvas);
+            shape.DrawAlgorithm(DrawField);
 
             SetHandlers(shape.CanvasIndex);
             return;
@@ -130,12 +135,12 @@ public partial class MainWindow
                 _isHandledButton = true;
             }
 
-            var mousePosition = e.GetPosition(Canvas);
+            var mousePosition = e.GetPosition(DrawField);
             var topLeftX = _downMyPoint.X + _arrowsX;
             var topLeftY = _downMyPoint.Y + _arrowsY;
             var downRightX = mousePosition.X + _arrowsX;
             var downRightY = mousePosition.Y + _arrowsY;
-            DrawShape(topLeftX, topLeftY, downRightX, downRightY, Brushes.Transparent);
+            DrawShape(topLeftX, topLeftY, (float)downRightX, (float)downRightY, Brushes.Transparent);
         }
     }
 
@@ -166,10 +171,10 @@ public partial class MainWindow
 
     void RemoveLastShape()
     {
-        int count = Canvas.Children.Count;
+        int count = DrawField.Children.Count;
         if (count > 0)
         {
-            Canvas.Children.RemoveAt(count - 1);
+            DrawField.Children.RemoveAt(count - 1);
             AbstractShapes.RemoveAt(count - 1);
         }
 
@@ -183,32 +188,31 @@ public partial class MainWindow
         _isHandledButton = false;
     }
 
-    MyPoint GetMousePosition(MouseEventArgs e)
+    OOP2.Shared.Point GetMousePosition(MouseEventArgs e)
     {
-        var mousePosition = e.GetPosition(Canvas);
-        return new(mousePosition.X, mousePosition.Y);
+        var mousePosition = e.GetPosition(DrawField);
+        return new((float)mousePosition.X, (float)mousePosition.Y);
     }
 
-    void DrawShape(double topLeftX, double topLeftY, double downRightX, double downRightY, Brush bg)
+    void DrawShape(float topLeftX, float topLeftY, float downRightX, float downRightY, Brush bg)
     {
-        AbstractShape shape = Factory.CreateShape(new(topLeftX, topLeftY), new(downRightX, downRightY),
-            bg, PenColorPicker.SelectedBrush, _angle);
+        AbstractShape shape = Factory.CreateShape(new Shared.Point(topLeftX, topLeftY), new Shared.Point(downRightX, downRightY), bg, PenColorPicker.SelectedBrush, _angle);
         AbstractShapes.Add(shape);
-        shape.DrawAlgorithm(Canvas);
+        shape.DrawAlgorithm(DrawField);
 
-        Canvas.Children[^1].PreviewMouseUp += Canvas_OnPreviewMouseUp;
-        Canvas.Children[^1].PreviewMouseWheel += Canvas_OnPreviewMouseWheel;
+        DrawField.Children[^1].PreviewMouseUp += Canvas_OnPreviewMouseUp;
+        DrawField.Children[^1].PreviewMouseWheel += Canvas_OnPreviewMouseWheel;
 
-        Canvas.Children[^1].MouseEnter += Shape_MouseEnter;
-        Canvas.Children[^1].MouseLeave += Shape_MouseLeave;
+        DrawField.Children[^1].MouseEnter += Shape_MouseEnter;
+        DrawField.Children[^1].MouseLeave += Shape_MouseLeave;
     }
 
     void SetHandlers(int canvasIndex)
     {
-        Canvas.Children[canvasIndex].PreviewMouseUp += Canvas_OnPreviewMouseUp;
-        Canvas.Children[canvasIndex].PreviewMouseWheel += Canvas_OnPreviewMouseWheel;
-        Canvas.Children[canvasIndex].MouseEnter += Shape_MouseEnter;
-        Canvas.Children[canvasIndex].MouseLeave += Shape_MouseLeave;
+        DrawField.Children[canvasIndex].PreviewMouseUp += Canvas_OnPreviewMouseUp;
+        DrawField.Children[canvasIndex].PreviewMouseWheel += Canvas_OnPreviewMouseWheel;
+        DrawField.Children[canvasIndex].MouseEnter += Shape_MouseEnter;
+        DrawField.Children[canvasIndex].MouseLeave += Shape_MouseLeave;
     }
 
     void Shape_MouseEnter(object sender, MouseEventArgs e)
@@ -429,6 +433,6 @@ public partial class MainWindow
     void ClearCanvas_OnClick(object sender, RoutedEventArgs e)
     {
         AbstractShapes.Clear();
-        Canvas.Children.Clear();
+        DrawField.Children.Clear();
     }
 }
