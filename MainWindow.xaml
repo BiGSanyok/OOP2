@@ -1,0 +1,63 @@
+﻿<Window x:Class="OOP2.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OOP2"
+        mc:Ignorable="d"        
+        xmlns:hw="http://schemas.hpod9.com/haley/wpf"
+            Title="Paint" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Панель инструментов -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" VerticalAlignment="Top" Margin="5">
+
+            <!--hw:ColorPickerButton Name="FillColorPicker" Content="Заливка" SelectedBrush="Black" Height="Auto" Width="Auto"/>
+            <hw:ColorPickerButton Name="PenColorPicker" Content="Карандаш" SelectedBrush="Black" Height="Auto" Width="Auto"/-->
+
+            <Button Name="CircleButton" Background="Transparent" Click="CircleButton_OnClick">
+                <Image Source="./Assets/circle.png" Width="30" Height="30"/>
+            </Button>
+            <Button Name="EllipseButton" Background="Transparent" Click="EllipseButton_OnClick">
+                <Image Source="./Assets/ellipse.png" Width="30" Height="30"/>
+            </Button>
+            <Button Name="SquareButton" Background="Transparent" Click="SquareButton_OnClick">
+                <Image Source="./Assets/square.png" Width="30" Height="30"/>
+            </Button>
+            <Button Name="RectangleButton" Background="Transparent" Click="RectangleButton_OnClick">
+                <Image Source="./Assets/rectangle.png" Width="30" Height="30"/>
+            </Button>
+            <Button Name="LineButton" Background="Transparent" Click="LineButton_OnClick">
+                <Image Source="./Assets/line.png" Width="30" Height="30"/>
+            </Button>
+            <Button Name="EquilateralTriangleButton" Background="Transparent" Click="EquilateralTriangleButton_OnClick">
+                <Image Source="./Assets/triangle.png" Width="30" Height="30"/>
+            </Button>
+            <Button Name="IsoscelesTriangleButton" Background="Transparent" Click="IsoscelesTriangleButton_OnClick">
+                <Image Source="./Assets/isosceles-triangle.png" Width="30" Height="30"/>
+            </Button>
+            <Button Name="RightTriangleButton" Background="Transparent" Click="RightTriangleButton_OnClick">
+                <Image Source="./Assets/right-triangle.png" Width="30" Height="30"/>
+            </Button>
+            <Button Name="ArcButton" Background="Transparent" Click="ArcButton_OnClick">
+                <Image Source="./Assets/arc.png" Width="30" Height="30"/>
+            </Button>
+
+            <TextBlock Name="Info" VerticalAlignment="Center"/>
+
+        </StackPanel>
+
+        <Canvas Grid.Row="1" Name="Canvas" />
+        <Border Grid.Row="1"
+            Background="Transparent"
+            PreviewMouseRightButtonDown="Canvas_OnPreviewMouseRightButtonDown"
+            PreviewMouseLeftButtonDown="Canvas_OnPreviewMouseLeftButtonDown"
+            PreviewMouseMove="Canvas_OnPreviewMouseMove"
+            MouseUp="Canvas_OnMouseUp">
+        </Border>
+    </Grid>
+</Window>
