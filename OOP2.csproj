@@ -6,11 +6,70 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <!--GenerateAssemblyInfo>false</GenerateAssemblyInfo-->
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.6.0" />
+    <Compile Remove="Commands.cs" />
+  </ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Haley.Abstractions" Version="1.1.4" />
+    <PackageReference Include="Haley.Extensions" Version="2.1.22" />
+    <PackageReference Include="Haley.Helpers" Version="2.1.16.2" />
+    <PackageReference Include="Haley.IOC" Version="3.0.17" />
+    <PackageReference Include="Haley.MVVM" Version="6.4.3.1" />
     <PackageReference Include="Haley.WPF" Version="5.4.3.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.77" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Haley.WPF">
+      <HintPath>..\..\.nuget\packages\haley.wpf\5.4.3.1\lib\net6.0-windows7.0\Haley.WPF.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Assets\circle.png" />
+    <Resource Include="Assets\circle.png" />
+    <None Remove="Assets\cross.png" />
+    <Resource Include="Assets\cross.png" />
+    <None Remove="Assets\ellipse.png" />
+    <Resource Include="Assets\ellipse.png" />
+    <None Remove="Assets\exit.png" />
+    <Resource Include="Assets\exit.png" />
+    <None Remove="Assets\folder.png" />
+    <Resource Include="Assets\folder.png" />
+    <None Remove="Assets\isosceles-triangle.png" />
+    <Resource Include="Assets\isosceles-triangle.png" />
+    <None Remove="Assets\line.png" />
+    <Resource Include="Assets\line.png" />
+    <None Remove="Assets\pen.png" />
+    <Resource Include="Assets\pen.png" />
+    <None Remove="Assets\rectangle.png" />
+    <Resource Include="Assets\rectangle.png" />
+    <None Remove="Assets\right-triangle.png" />
+    <Resource Include="Assets\right-triangle.png" />
+    <None Remove="Assets\square.png" />
+    <Resource Include="Assets\square.png" />
+    <None Remove="Assets\triangle.png" />
+    <Resource Include="Assets\triangle.png" />
+    <None Remove="Assets\bucket.png" />
+    <Resource Include="Assets\bucket.png" />
+    <None Remove="Assets\arc.png" />
+    <Resource Include="Assets\arc.png" />
+    <None Remove="Assets\maximize.png" />
+    <Resource Include="Assets\maximize.png" />
+    <None Remove="Assets\minimize.png" />
+    <Resource Include="Assets\minimize.png" />
+    <None Remove="Assets\file.png" />
+    <Resource Include="Assets\file.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="DynamicLoad\" />
   </ItemGroup>
 
 </Project>

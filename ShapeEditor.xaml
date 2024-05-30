@@ -7,7 +7,9 @@
         xmlns:hw="http://schemas.hpod9.com/haley/wpf"
         xmlns:local="clr-namespace:OOP2"
         mc:Ignorable="d"
-        Title="ShapeEditor" Height="450" Width="800">
+        Title="ShapeEditor" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}" >
+    
     <Window.Resources>
         <Style TargetType="StackPanel">
             <Setter Property="Margin" Value="0"/>
@@ -26,7 +28,7 @@
             <Setter Property="HorizontalAlignment" Value="Center"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="Background" Value="#4CAF50"/>
-            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Foreground" Value="BlanchedAlmond"/>
             <Setter Property="Cursor" Value="Hand"/>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -36,7 +38,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid Margin="5">
+    <Grid Margin="5" Background="BlanchedAlmond">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -49,38 +51,38 @@
 
         <StackPanel Grid.Row="0">
             <TextBlock Text="Цвет заливки" Foreground="SlateBlue" FontWeight="Bold"/>
-            <hw:ColorPickerButton Background="#272727" BorderBrush="SlateBlue" BorderThickness="2" SelectedBrush="{Binding Shape.BackgroundColor}" Content=""/>
+            <hw:ColorPickerButton Background="Azure" BorderBrush="SlateBlue" BorderThickness="2" SelectedBrush="{Binding Shape.BackgroundColor}" Content=""/>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
             <TextBlock Text="Цвет обводки" Foreground="SlateBlue" FontWeight="Bold"/>
-            <hw:ColorPickerButton Background="#272727" BorderBrush="SlateBlue" BorderThickness="2" SelectedBrush="{Binding Shape.PenColor}" Content=""/>
+            <hw:ColorPickerButton Background="Azure" BorderBrush="SlateBlue" BorderThickness="2" SelectedBrush="{Binding Shape.PenColor}" Content=""/>
         </StackPanel>
 
         <StackPanel Grid.Row="2">
             <TextBlock Text="Толщина обводки" Foreground="SlateBlue" FontWeight="Bold"/>
-            <TextBox Background="#272727" BorderBrush="SlateBlue" BorderThickness="2" Text="{Binding Shape.StrokeThickness}"/>
+            <TextBox Background="Azure" BorderBrush="SlateBlue" BorderThickness="2" Text="{Binding Shape.StrokeThickness}"/>
         </StackPanel>
 
         <StackPanel Grid.Row="3">
             <TextBlock Text="Верхний угол (X,Y)" Foreground="SlateBlue" FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox Background="#272727" BorderBrush="SlateBlue" BorderThickness="2" Width="100" Text="{Binding Shape.TopLeft.X}"/>
-                <TextBox Background="#272727" BorderBrush="SlateBlue" BorderThickness="2" Width="100" Text="{Binding Shape.TopLeft.Y}" Margin="20,0,0,0"/>
+                <TextBox Background="Azure" BorderBrush="SlateBlue" BorderThickness="2" Width="100" Text="{Binding Shape.TopLeft.X}"/>
+                <TextBox Background="Azure" BorderBrush="SlateBlue" BorderThickness="2" Width="100" Text="{Binding Shape.TopLeft.Y}" Margin="20,0,0,0"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4">
             <TextBlock Text="Нижний правый угол (X,Y)" Foreground="SlateBlue" FontWeight="Bold"/>
             <StackPanel Orientation="Horizontal">
-                <TextBox Background="#272727" BorderBrush="SlateBlue" BorderThickness="2" Width="100" Text="{Binding Shape.DownRight.X}" />
-                <TextBox Background="#272727" BorderBrush="SlateBlue" BorderThickness="2" Width="100" Text="{Binding Shape.DownRight.Y}" Margin="20,0,0,0"/>
+                <TextBox Background="Azure" BorderBrush="SlateBlue" BorderThickness="2" Width="100" Text="{Binding Shape.DownRight.X}" />
+                <TextBox Background="Azure" BorderBrush="SlateBlue" BorderThickness="2" Width="100" Text="{Binding Shape.DownRight.Y}" Margin="20,0,0,0"/>
             </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="5">
             <TextBlock Text="Угол поворота" Foreground="SlateBlue" FontWeight="Bold"/>
-            <TextBox Background="#272727" BorderBrush="SlateBlue" BorderThickness="2" Text="{Binding Shape.Angle, UpdateSourceTrigger=PropertyChanged}"/>
+            <TextBox Background="Azure" BorderBrush="SlateBlue" BorderThickness="2" Text="{Binding Shape.Angle, UpdateSourceTrigger=PropertyChanged}"/>
         </StackPanel>
 
         <Button Background="SlateBlue" Grid.Row="6" Content="Применить" Click="ApplyButton_Click" IsCancel="True"/>

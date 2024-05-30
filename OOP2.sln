@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34622.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OOP2", "OOP2.csproj", "{07D4BF23-D281-4084-9C93-D51A7ED138F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OOP2", "OOP2.csproj", "{07D4BF23-D281-4084-9C93-D51A7ED138F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Heart", "..\Heart\Heart.csproj", "{802D17D3-BAE3-497C-8934-0C16F7E340BC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{07D4BF23-D281-4084-9C93-D51A7ED138F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07D4BF23-D281-4084-9C93-D51A7ED138F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07D4BF23-D281-4084-9C93-D51A7ED138F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{802D17D3-BAE3-497C-8934-0C16F7E340BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{802D17D3-BAE3-497C-8934-0C16F7E340BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{802D17D3-BAE3-497C-8934-0C16F7E340BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{802D17D3-BAE3-497C-8934-0C16F7E340BC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,10 +1,10 @@
 ﻿using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Shapes;
-using OOP2.Shapes.EllipseType;
+using OOP2.Interfaces;
 using OOP2.Shared;
 
-namespace OOP2.Strategy;
+namespace OOP2.Strategies;
 
 public class EllipseDrawStrategy : IDrawStrategy
 {

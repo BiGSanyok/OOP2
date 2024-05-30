@@ -1,9 +1,8 @@
-﻿using System.Windows.Controls;
+﻿using OOP2.Interfaces;
 using OOP2.Shared;
 using System.Windows.Shapes;
-using OOP2.Shapes;
 
-namespace OOP2.Strategy;
+namespace OOP2.Strategies;
 
 public class LineDrawStrategy : IDrawStrategy
 {

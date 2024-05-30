@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:OOP2"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Haley.WPF;component/dictionaries/haleyrd.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MainWindowStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

@@ -1,7 +1,9 @@
 ﻿using OOP2.Shapes;
 using OOP2.Shared;
+using OOP2.Interfaces;
 using System.Windows.Media;
 using System.Windows.Shapes;
+
 
 namespace OOP2.Strategy;
 

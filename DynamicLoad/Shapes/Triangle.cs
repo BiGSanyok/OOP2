@@ -1,17 +1,25 @@
 using OOP2.Shared;
 using System;
 using System.Windows.Media;
+using OOP2.Strategy;
 
 
 namespace OOP2.Shapes;
 
 class Triangle : AbstractShape
 {
+    public override object Tag => "5";
     public Point VertexOX { get; set; }
     public Point VertexOY { get; set; }
+
     public Triangle(Point topLeft, Point downRight, Brush bgColor, Brush penColor, int angle)
-    : base(topLeft, downRight, bgColor, penColor, angle)
-    { }
+        : base(topLeft, downRight, bgColor, penColor, angle)
+    {
+        DrawStrategy = new TriangleDrawStrategy();
+        CalculateVertexByX(TopLeft, DownRight);
+        CalculateVertexByY(TopLeft, DownRight);
+    }
+
     public void CalculateVertexByX(Point vertex, Point endPoint)
     {
         VertexOX = new(vertex.X + Math.Abs(endPoint.X - vertex.X), vertex.Y);
